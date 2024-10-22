@@ -1,11 +1,11 @@
-'use client' // wherer useAnalyticsBrowser is used
+'use client'
 
 import Image from 'next/image'
-import { useAnalyticsBrowser } from './hooks/use-analytics'
+import { useAnalytics } from './hooks/use-analytics'
 
 export default function Home() {
-  const { cio } = useAnalyticsBrowser()
-  console.log({ cio })
+  const analyticsBrowser = useAnalytics()
+  console.log({ analyticsBrowser })
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
