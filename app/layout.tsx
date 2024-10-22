@@ -31,8 +31,11 @@ export default function RootLayout({
       >
         <AnalyticsProvider
           writeKey="sample-write-key"
-          enableInAppPlugin={true}
-          siteId="sample-site-id"
+          options={{
+            integrations: {
+              'Customer.io In-App Plugin': { siteId: 'sample-site-id' },
+            },
+          }}
         >
           {children}
         </AnalyticsProvider>

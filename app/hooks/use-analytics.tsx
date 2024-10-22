@@ -10,27 +10,17 @@ const AnalyticsContext = createContext<AnalyticsBrowser | null>(null)
 
 type AnalyticsProvidersProps = {
   writeKey: string
-  enableInAppPlugin?: boolean
-  siteId?: string
+  options?: InitOptions
 }
 
 export const AnalyticsProvider = ({
   writeKey,
-  enableInAppPlugin,
-  siteId,
+  options,
   children,
 }: React.PropsWithChildren<AnalyticsProvidersProps>) => {
   const analytics = useMemo(() => {
-    const options: InitOptions | undefined = enableInAppPlugin
-      ? {
-          integrations: {
-            'Customer.io In-App Plugin': { siteId: siteId ?? '' },
-          },
-        }
-      : undefined
-
     return AnalyticsBrowser.load({ writeKey }, options)
-  }, [writeKey, enableInAppPlugin, siteId])
+  }, [writeKey, options])
 
   return (
     <AnalyticsContext.Provider value={analytics}>
