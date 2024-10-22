@@ -29,7 +29,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <AnalyticsProvider writeKey="sample-write-key">
+        <AnalyticsProvider
+          writeKey="sample-write-key"
+          enableInAppPlugin={true}
+          siteId="sample-site-id"
+        >
           {children}
         </AnalyticsProvider>
       </body>
